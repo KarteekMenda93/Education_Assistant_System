@@ -61,7 +61,8 @@ def user_input(user_question):
 
 def main():
   st.set_page_config("Chat PDF")
-  st.header("Chat with Personal Teacher 💁")
+  st.header("Team 12 Project")
+  st.header("Chat with Educational Assistant System")
 
   user_question = st.text_input("Ask a Question from the PDF Files")
 
@@ -77,6 +78,9 @@ def main():
         text_chunks = get_chunks(raw_text)
         get_vector_store(text_chunks)
         st.success("Done")
-    
+    st.title("Team Members")
+    st.subtitle("1. Karteek Menda")
+    st.subtitle("2. Rahul Mudupulavemula")
+    st.subtitle("3. Niharika Gowri Raghunath")
 if __name__ == "__main__":
     main()
