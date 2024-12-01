@@ -79,8 +79,8 @@ def main():
         get_vector_store(text_chunks)
         st.success("Done")
     st.title("Team Members")
-    st.subtitle("1. Karteek Menda")
-    st.subtitle("2. Rahul Mudupulavemula")
-    st.subtitle("3. Niharika Gowri Raghunath")
+    st.markdown("- **Karteek Menda**")
+    st.markdown("- **Rahul Mudupulavemula**")
+    st.markdown("- **Niharika Gowri Raghunath**")
 if __name__ == "__main__":
     main()
