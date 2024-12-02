@@ -9,10 +9,10 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.chains.question_answering import load_qa_chain
 from langchain.prompts import PromptTemplate
 from dotenv import load_dotenv
+import google.generativeai as genai  
 
-GOOGLE_API_KEY = 'AIzaSyDkM51-MYz7_2QYL-aaaAdH7zB9Awf6Auc'
-os.getenv("GOOGLE_API_KEY")
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+os.environ["GOOGLE_API_KEY"] = "AIzaSyDkM51-MYz7_2QYL-aaaAdH7zB9Awf6Auc"
+genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
 
 
 def get_pdf_text(pdf_docs):
@@ -32,6 +32,7 @@ def get_vector_store(text_chunks):
   embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
   vector_store = FAISS.from_texts(texts = text_chunks, embedding = embeddings)
   vector_store.save_local("faiss_index")
+  return vector_store
 
 
 def get_conversational_chain():
@@ -48,7 +49,7 @@ def get_conversational_chain():
 
 def user_input(user_question):
   embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
-  new_db = FAISS.load_local("faiss_index", embeddings)
+  new_db = FAISS.load_local("faiss_index", embeddings, allow_dangerous_deserialization=True)
   docs = new_db.similarity_search(user_question)
   chain = get_conversational_chain()
 
