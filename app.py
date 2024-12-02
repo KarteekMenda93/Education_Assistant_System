@@ -61,7 +61,7 @@ def user_input(user_question):
   st.write("Reply: ", response["output_text"])
 
 def main():
-  st.set_page_config("Chat PDF")
+  st.set_page_config("Educational Assistant System")
   st.header("Team 12 Project")
   st.header("Chat with Educational Assistant System")
 
