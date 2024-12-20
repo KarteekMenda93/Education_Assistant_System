@@ -62,7 +62,6 @@ def user_input(user_question):
 
 def main():
   st.set_page_config("Educational Assistant System")
-  st.header("Team 12 Project")
   st.header("Chat with Educational Assistant System")
 
   user_question = st.text_input("Ask a Question from the PDF Files")
@@ -79,9 +78,7 @@ def main():
         text_chunks = get_chunks(raw_text)
         get_vector_store(text_chunks)
         st.success("Done")
-    st.title("Team Members")
+    st.title("Project By")
     st.markdown("- **Karteek Menda**")
-    st.markdown("- **Rahul Mudupulavemula**")
-    st.markdown("- **Niharika Gowri Raghunath**")
 if __name__ == "__main__":
     main()
