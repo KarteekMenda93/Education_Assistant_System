@@ -78,7 +78,7 @@ def main():
         text_chunks = get_chunks(raw_text)
         get_vector_store(text_chunks)
         st.success("Done")
-    st.title("Project By")
+    st.title("Designed and Deployed by")
     st.markdown("- **Karteek Menda**")
 if __name__ == "__main__":
     main()
